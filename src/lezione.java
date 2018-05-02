@@ -11,7 +11,7 @@ public class lezione {
 		Sieve lista ;
 		
 		lista = new Sieve(args) ;
-		
+	// test
 //		lista.printmatrix();
 		
 		return ;
