@@ -1,38 +1,45 @@
-package primes.erathostenes ;
+package primes ;
 
 import java.math.BigInteger ;
-import primes.Item;
-public class Sieve extends Sieve<Token> {
-//private    BigInteger maxprime ;
-//private    BigInteger euler ;
+
+public abstract class Sieve<T> extends Item<T> {
+private    BigInteger maxprime ;
+private    BigInteger euler ;
 
 	
-public Sieve(String[] args, Item<Token> next) {
-		super(args, next);
+	public Sieve(String[] args, Item<T> next) {
+		super(next);
 		
-//		this.maxprime = new BigInteger(args[0]) ;
-//		this.euler = BigInteger.ZERO ;
+		this.maxprime = new BigInteger(args[0]) ;
+		this.euler = BigInteger.ZERO ;
 	}
 	
 	public Sieve () {
-		super() ;
-//		this.euler = BigInteger.ZERO ;
+		super(null) ;
+		this.euler = BigInteger.ZERO ;
 	}
 	
-	public Sieve(String[] args) {
-		this(args, new Counter<Token>()) ;
+/*
+ public Sieve(String[] args) {
+		this(args, new Counter()) ;
 		System.out.println("new erathostenes Sieve with string args");
 		
 		this.mainloop();
 		this.print() ;
 	}
+*/
 	
-public	boolean testloop(Token token) {
+ 
+public	abstract boolean testloop(T token) ;
+/*	{
 		return ( token.value().compareTo(this.maxprime) != 1) ;
 	}
-	
-private void mainloop() {
-		Token token ;
+*/
+
+
+	public abstract void mainloop() ;
+/*	{
+		T token ;
 		
 		token = next.get() ;
 		
@@ -43,8 +50,9 @@ private void mainloop() {
 		};
 		
 	}
+*/
 	
-/*	// setters
+	// setters
 	public void setmax(BigInteger max) {
 		this.maxprime = max ;
 	}
@@ -72,16 +80,18 @@ private void mainloop() {
 		this.next.print() ;
 		
 	}
-*/
+
+	public abstract	T get() ;
 	
-public	Token get() {
+/*	public T get {
 		return null ;
 
 	}
-/*
+	*/
+	
 	public BigInteger value() {
 		
 		return this.euler ;
 	}
-*/
+
 }

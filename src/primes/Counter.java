@@ -1,27 +1,29 @@
-package primes.erathostenes ;
+package primes ;
 
 import java.math.BigInteger ;
 
-public class Counter extends primes.Counter<Token> {
-/*
+public abstract class Counter<T> extends Item<T> {
 private    BigInteger count ;
 private    T tok;
-*/
- 
- // costruttori
-public Counter() {
+    // costruttori
+
+ public Counter() {
 		super();
-	}
-	
-public Counter(Token token) {
-		super(token);
-	}
-	
-public Counter(Sieve<Token> sieve) {
-		super(sieve);
+//		this.tok=new T();
+		this.count = new BigInteger("2") ;
 	}
 
-	/*
+
+ public Counter(T token) {
+		super();
+		this.tok = token ;
+		this.count = new BigInteger("2") ;
+	}
+
+public Counter(Sieve<T> sieve) {
+		this();
+	}
+	
     // setters
 public	void set() {
 		this.count = this.count.add(BigInteger.ONE) ;
@@ -32,19 +34,11 @@ public	void set() {
 public void print() {
 		System.out.println("C:"+this.count);
 	}
-*/
-	 
-	 public Token get() ;
-	 
-	 {
-	 
-	 this.tok.Set(this.count);
-	 this.set() ;
-	 
-	 return tok ;
-	 }
+	
+	public abstract	T get() ;
+	
 
-/*
+
 public	BigInteger value() {
 		return this.count ;
 	}
@@ -52,7 +46,5 @@ public	BigInteger value() {
 public 	T token() {
 		return this.tok;
 	}
- 
- */
 
 }
