@@ -1,29 +1,12 @@
 package primes.erathostenes ;
 
 import java.math.BigInteger ;
-import primes.Item; ;
-public class Filter extends Item<Token> {
- private BigInteger prime ;
+import primes.Item;
 
-    // costruttori
-public Filter(Item<Token> tail, BigInteger p ) {
-	System.out.println("new erathostenes Filter");
-	this.Set(tail,p) ;
-    }
-
-    // setters
-private void Set(Item<Token> tail, BigInteger p) {
-	this.prime = p ;
-	super.set(tail) ;
-    }
-
-    // getters
-public void print() {
-		
-		System.out.print("F:"+this.prime+"->");
-		//if (!(this.next==null))
-		this.next.print() ;
-		
+public class Filter extends primes.Filter<Token> {
+ 
+	public Filter(Item<Token> tail, BigInteger p) {
+		super(tail,p);
 	}
 
 public boolean test(Token t) {
@@ -38,12 +21,6 @@ public Token get() {
 
 	}
 	
-	
-public	BigInteger value() {
-		return this.prime ;
-		
-	}
-
 }
 
 

@@ -1,12 +1,11 @@
 package primes.goldbach ;
 
 import java.math.BigInteger ;
-import primes.erathostenes.Sieve ;
-import primes.erathostenes.Item ;
+import primes.Item ;
 
 class Token extends primes.erathostenes.Token {
 //private BigInteger num ;
-private Item top ;
+private Item<Token> top ;
 private boolean parity ;
 
 	static final BigInteger TWO = new BigInteger("2");
@@ -32,7 +31,7 @@ private boolean parity ;
 		this.parity = ((!(n.compareTo(Token.TWO)==0))&& (n.mod(Token.TWO).compareTo(BigInteger.ZERO) == 0))  ;
 	}
 	
-	void SetTop(Item link) {
+	void SetTop(Item<Token> link) {
 		this.top = link ;
 		
 	}
@@ -45,7 +44,7 @@ private boolean parity ;
 	}
 */
 	
-	Item top() {
+	Item<Token> top() {
 		
 		return this.top;
 	}

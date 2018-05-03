@@ -1,9 +1,9 @@
 package primes.quadratic ;
 
-import primes.erathostenes.Item ;
+import primes.Item ;
 
 interface Bidimensional {
 	
-	Item column() ;
+	Item<Token> column() ;
 	
 }

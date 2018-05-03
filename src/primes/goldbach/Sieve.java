@@ -1,8 +1,6 @@
 package primes.goldbach ;
 
-import java.math.BigInteger ;
-
-public class Sieve extends primes.erathostenes.Sieve {
+public class Sieve extends primes.Sieve<Token> {
 
     // costruttori
 public Sieve(String[] args) {
@@ -13,23 +11,27 @@ public Sieve(String[] args) {
 
 	}
 	
-private boolean testloop(Token token) {
+public boolean testloop(Token token) {
 		return (( token.value().compareTo(this.getmax()) != 1) && (!token.parity())) ;
 	}
 	
 	
-private void mainloop() {
+public void mainloop() {
 		Token token ;
 			//System.out.println("in main loop - before the first get");
-		token = (Token) this.next().get() ;
+		token = this.next().get() ;
 	
 		while (testloop(token)) {
 			this.seteuler()  ;
 			this.set( new Filter(this.next() , token.value() ));
-			token = (Token) this.next().get() ;
-		};
+			token = this.next().get() ;
+		}
 		
 	}
 
+public	Token get() {
+	return null ;
+
+}
 
 }

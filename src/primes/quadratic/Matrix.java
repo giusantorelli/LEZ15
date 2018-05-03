@@ -6,12 +6,13 @@
 package primes.quadratic ;
 
 import java.math.BigInteger ;
-import primes.erathostenes.Item ;
+import primes.Item;
+
 //import primes.erathostenes.Token ;
 
-class Matrix extends Item implements Bidimensional {
+class Matrix extends Item<Token> implements Bidimensional {
 private	BigInteger entry ;
-private	Item nextrow ;
+private	Item<Token> nextrow ;
 
 /** Costruttore che inserisce un nuovo elemento <em>e</em>
        nella matrice  che continua con la riga n
@@ -21,7 +22,7 @@ private	Item nextrow ;
        @param e il valore intero da inserire nella matrice
     */
 
-	Matrix(Item n, Item nrow, BigInteger e) {
+	Matrix(Item<Token> n, Item<Token> nrow, BigInteger e) {
 		super(n) ;
 		
 		//System.out.println("constructing Matrix object: next = "+n+" column = "+nrow+" entry = "+e);
@@ -33,7 +34,7 @@ private	Item nextrow ;
        @param nrow la prossima riga della matrice 
        @param e    valore da immettere
     */
-private	void set(Item nrow, BigInteger e) {
+private	void set(Item<Token> nrow, BigInteger e) {
 		this.nextrow = nrow;
 		this.entry = e;
 	}
@@ -76,7 +77,7 @@ public void print() {
  * in the same column of the Matrix
  * @return the reference to the Item linked by nextrow attribute.
  */
-public Item column () {
+public Item<Token> column () {
 	return this.nextrow ;
 	}
 

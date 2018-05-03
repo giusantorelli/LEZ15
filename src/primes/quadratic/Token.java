@@ -7,7 +7,7 @@
 package primes.quadratic ;
 
 import java.math.BigInteger ;
-import primes.erathostenes.Sieve ;
+
 
 class Token extends primes.erathostenes.Token {
 //private BigInteger num ;

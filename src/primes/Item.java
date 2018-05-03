@@ -5,7 +5,7 @@ public abstract class Item<T> {
 
 // fields
 
-public    Item<T>  next ;
+public Item<T>  next ;
 
 // costruttori (initialise)
 public Item () {
@@ -36,7 +36,7 @@ int length() {
 		return i;
 	}
 	
-public	Item next() {
+public	Item<T> next() {
 		return next ;
 	}
 	
@@ -52,6 +52,8 @@ abstract public void print() ;
 abstract public T get() ;
 	
 abstract public BigInteger value() ;
+
+abstract public Item<T> column();
 
 }
 

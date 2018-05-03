@@ -3,16 +3,14 @@
  * @author Marco Pedicini
  **/
 
-import primes.erathostenes.Sieve ;
+import primes.quadratic.Sieve ;
 
 public class lezione {
 	
 	public static void main(String[] args) {
-		Sieve lista ;
-		
-		lista = new Sieve(args) ;
-		
-//		lista.printmatrix();
+		Sieve lista = new Sieve(args) ;
+	
+     lista.printmatrix();
 		
 		return ;
 	}

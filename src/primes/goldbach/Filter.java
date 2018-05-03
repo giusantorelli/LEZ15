@@ -1,19 +1,19 @@
 package primes.goldbach ;
 
 import java.math.BigInteger ;
-import primes.erathostenes.Item ;
+import primes.Item ;
 
-class Filter extends primes.erathostenes.Filter {
+class Filter extends primes.Filter<Token> {
 // costruttori
-	Filter(Item tail, BigInteger p ) {
+	Filter(Item<Token> tail, BigInteger p ) {
 		super(tail,p) ;
     }
 
-private boolean	test(Token t) {
+public boolean	test(Token t) {
 		if (t.parity())
 			return this.testgoldbach(t) ;
 		else
-			return super.test(t) ;
+			return (t.value().mod(this.value()).compareTo(BigInteger.ZERO) == 0) ;
 	}
 	
 private boolean testgoldbach(Token t) {
@@ -32,8 +32,8 @@ private boolean testgoldbach(Token t) {
 	
 public Token get() {
 	 	Token token;
-	 	token=(Token) this.next().get() ;
-	 	while (test(token)) token=(Token) this.next().get();
+	 	token= (Token) this.next().get() ;
+	 	while (test(token)) token = (Token) this.next().get();
 	 	return token;
 	 
 	 }

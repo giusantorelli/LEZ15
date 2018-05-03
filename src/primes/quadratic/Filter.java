@@ -1,17 +1,19 @@
 package primes.quadratic ;
 
 import java.math.BigInteger ;
-import primes.erathostenes.Item;
+import primes.Item;
 
-class Filter extends primes.erathostenes.Filter implements Bidimensional {
+
+
+class Filter extends primes.Filter<Token> implements Bidimensional {
 	Matrix column ;
 	
 	
 // costruttori
-Filter(Item tail, BigInteger p) {
+Filter(Item<Token> tail, BigInteger p) {
 		super(tail,p) ;
 		
-		Item tmp;
+		Item<Token> tmp;
 		System.out.println(" new quadratic Filter "+" is token value = 2 ? "+p.compareTo(new BigInteger("2")));
 		
 		if( p.compareTo(new BigInteger("2")) == 0 )
@@ -23,7 +25,7 @@ Filter(Item tail, BigInteger p) {
 				}
 			else
 				{	
-					tmp = ((Filter)tail).column();
+					tmp = tail.column();
 					System.out.println(" reference to next object (step): "+tmp);
 					this.column = new Matrix(tmp , this.setzerocolumn(tmp), BigInteger.ONE);
 				};
@@ -35,15 +37,15 @@ Filter(Item tail, BigInteger p) {
 		System.out.println(" fine creazione filtro ");
 	}
 
-private Item setzerocolumn(Item r) {
-		if (((Matrix)r).column() != null)
+private Item<Token> setzerocolumn(Item<Token> r) {
+		if (r.column() != null)
 			return (new Matrix(((Matrix)r).column(),this.setzerocolumn(((Matrix)r).column()),BigInteger.ZERO));
 		else
 			return null ;
 	}
 
 private Token factorize(Token tok) {
-		Item tmp;
+		Item<Token> tmp;
 		
 		BigInteger exp = BigInteger.ZERO ;
 		
@@ -63,7 +65,7 @@ private Token factorize(Token tok) {
 		}
 	else
 		{	
-			tmp = ((Filter)this.next()).column();
+			tmp = (this.next()).column();
 			//System.out.println(" reference to next object (step): "+tmp);
 			this.column = new Matrix(tmp , this.column(), exp);
 		};
@@ -86,10 +88,14 @@ public Token get() {
 	}
 	
 	
-public Item column () {
+public Item<Token> column() {
 		
 		return this.column ;
 	}
+
+public boolean	test(Token t) {
+	return (t.value().mod(this.value()).compareTo(BigInteger.ZERO) == 0) ;
+}
 
 }
 
