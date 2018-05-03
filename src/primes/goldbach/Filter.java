@@ -32,8 +32,8 @@ private boolean testgoldbach(Token t) {
 	
 public Token get() {
 	 	Token token;
-	 	token= this.next().get() ;
-	 	while (test(token)) token = this.next().get();
+	 	token= (Token) this.next().get() ;
+	 	while (test(token)) token = (Token) this.next().get();
 	 	return token;
 	 
 	 }

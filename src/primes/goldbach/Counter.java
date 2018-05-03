@@ -19,7 +19,7 @@ public Token get() {
 	}
 	
 public Token token() {
-		return super.token();
+		return (Token) super.token();
 	}
 
 }

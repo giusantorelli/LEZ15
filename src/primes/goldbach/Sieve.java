@@ -1,7 +1,6 @@
 package primes.goldbach ;
 
 import java.math.BigInteger ;
-import primes.erathostenes.Token ;
 
 public class Sieve extends primes.erathostenes.Sieve {
 
@@ -22,12 +21,12 @@ private boolean testloop(Token token) {
 private void mainloop() {
 		Token token ;
 			//System.out.println("in main loop - before the first get");
-		token = this.next().get() ;
+		token = (Token) this.next().get() ;
 	
 		while (testloop(token)) {
 			this.seteuler()  ;
 			this.set( new Filter(this.next() , token.value() ));
-			token = this.next().get() ;
+			token = (Token) this.next().get() ;
 		};
 		
 	}
