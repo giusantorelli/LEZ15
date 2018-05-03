@@ -5,7 +5,7 @@ public abstract class Item<T> {
 
 // fields
 
-public    Item<T>  next ;
+public Item<T>  next ;
 
 // costruttori (initialise)
 public Item () {

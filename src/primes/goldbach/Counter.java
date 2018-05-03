@@ -1,6 +1,7 @@
 package primes.goldbach ;
 
 import java.math.BigInteger ;
+import primes.Item ;
 
 class Counter extends primes.erathostenes.Counter {
 private Sieve sieve;
@@ -18,7 +19,7 @@ public Token get() {
 	}
 	
 public Token token() {
-		return (Token) super.token();
+		return super.token();
 	}
 
 }

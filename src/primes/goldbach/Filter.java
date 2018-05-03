@@ -1,11 +1,11 @@
 package primes.goldbach ;
 
 import java.math.BigInteger ;
-import primes.erathostenes.Item ;
+import primes.Item ;
 
 class Filter extends primes.erathostenes.Filter {
 // costruttori
-	Filter(Item tail, BigInteger p ) {
+	Filter(Item<Token> tail, BigInteger p ) {
 		super(tail,p) ;
     }
 
@@ -32,8 +32,8 @@ private boolean testgoldbach(Token t) {
 	
 public Token get() {
 	 	Token token;
-	 	token=(Token) this.next().get() ;
-	 	while (test(token)) token=(Token) this.next().get();
+	 	token= this.next().get() ;
+	 	while (test(token)) token = this.next().get();
 	 	return token;
 	 
 	 }
